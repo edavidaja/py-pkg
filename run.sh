@@ -4,7 +4,7 @@ set -xeu
 
 echo "Run script starting..."
 
-BUILD_NO=${1:-default}
+BUILD_NO=${2:-default}
 if [[ ${BUILD_NO} == "default" ]]; then
   echo "Missing build number"
   exit 1
