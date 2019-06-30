@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -xeu
+echo "Build script starting..."
 
 BUILD_NO=${1:-default}
 
