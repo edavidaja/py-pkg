@@ -13,5 +13,8 @@ fi
 if [[ ! -d output ]]; then
   echo "Creating output directory"
   mkdir output
+else
+  echo "Clearing outputs"
+  rm -rf output/*
 fi
 
