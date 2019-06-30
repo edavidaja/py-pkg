@@ -8,12 +8,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'make build'
+                sh 'make build-containers'
             }
         }
         stage('package') {
             steps {
-                sh 'make run ${BUILD_NUMBER}'
+                sh 'make create-pkg ${BUILD_NUMBER}'
             }
         }
     }
