@@ -5,7 +5,7 @@ docker build -t py-build:ubuntu-1804 ./targets/ubuntu-1804/
 }
 
 function docker_run() {
-docker run -v ${PWD}/output:/opt/python -v ${PWD}/src:/src py-build:ubuntu-1804 ${BUILD_NUMBER}
+docker run -v ${PWD}/output:/opt/python -v ${PWD}/src:/src py-build:ubuntu-1804 ${2}
 }
 
 if [[ ${1} == "run" ]]; then
