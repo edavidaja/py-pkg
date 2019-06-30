@@ -28,5 +28,5 @@ RUN gem install fpm
 
 COPY build.sh /build.sh
 
-ENTRYPOINT /bin/bash /build.sh
+ENTRYPOINT ["/build.sh"]
 CMD []
