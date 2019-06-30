@@ -16,4 +16,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'python*.deb', fingerprint: true
+        }
+    }
 }
