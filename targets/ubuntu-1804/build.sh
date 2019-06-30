@@ -2,7 +2,7 @@
 
 set -xeu
 echo "Build script starting..."
-
+echo $@
 BUILD_NO=${1:-default}
 
 if [[ ${BUILD_NO} == "default" ]]; then
