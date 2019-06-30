@@ -13,7 +13,7 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh 'make create-pkg ${BUILD_NUMBER}'
+                sh 'make create-pkg'
             }
         }
     }
