@@ -5,10 +5,6 @@ set -xeu
 echo "Run script starting..."
 
 BUILD_NO=${2:-default}
-if [[ ${BUILD_NO} == "default" ]]; then
-  echo "Missing build number"
-  exit 1
-fi
 
 function docker_build(){
 docker build -t py-build:ubuntu-1804 ./targets/ubuntu-1804/
