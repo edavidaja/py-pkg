@@ -19,7 +19,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'python*.deb', fingerprint: true
+            archiveArtifacts artifacts: 'output/python*.deb', fingerprint: true
         }
     }
 }
