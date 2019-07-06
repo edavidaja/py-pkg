@@ -23,7 +23,7 @@ done
 
 
 if [[ ${INPUT} == "run" ]]; then
-docker_run ${BUILD_NO}
+docker_run 
 exit
 fi
 
