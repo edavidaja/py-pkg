@@ -24,6 +24,6 @@ fpm \
   -t deb \
   -v ${BUILD_NUMBER} \
   -n python${VERSION} \
-  -p /output/${OS_IDENTIFIER} \
+  -p /output/${OS_IDENTIFIER}/ \
   /opt/python/${VERSION}
 
