@@ -10,7 +10,7 @@ Sometimes you need more that one version of python installed in production setti
 
 Maybe you're migrating from one version to another, or perhaps you have legacy code that you want to run using a specific version.
 
-This project provides Linux OS packages (initiallu for Ubuntu and CentOS/RedHat) that install to `/opt/python/\<version number\>` so that multiple versions can be installed side-by-side.
+This project provides Linux OS packages (initiallu for Ubuntu and CentOS/RedHat) that install to `/opt/python/<version number>` so that multiple versions can be installed side-by-side.
 
 The installation packages are called 'python\<version number\>' and the package version number is actually the build number.
 
