@@ -2,21 +2,18 @@
 
 set -xeu
 echo "Build script starting..."
-echo $@
-BUILD_NO=${1:-default}
 
-if [[ ${BUILD_NO} == "default" ]]; then
-	echo "missing build number"
-	exit 1
+cp /src/Python-${VERSION}.tgz /
+
+tar -zxvf Python-${VERSION}.tgz
+
+cd Python-${VERSION}
+
+./configure --prefix /opt/python/${VERSION} --enable-optimizations
+
+if [ ! -d /output/${OS_IDENTIFIER} ]; then
+  mkdir /output/${OS_IDENTIFIER}
 fi
-
-cp /src/Python-3.6.8.tgz /
-
-tar -zxvf Python-3.6.8.tgz
-
-cd Python-3.6.8
-
-./configure --prefix /opt/python/3.6.8 --enable-optimizations
 
 make
 
@@ -25,7 +22,8 @@ make install
 fpm \
   -s dir \
   -t deb \
-  -v ${BUILD_NO} \
-  -n python3.6.8 \
-  -p /opt/python/ \
-  /opt/python/3.6.8
+  -v ${BUILD_NUMBER} \
+  -n python${VERSION} \
+  -p /output/${OS_IDENTIFIER} \
+  /opt/python/${VERSION}
+

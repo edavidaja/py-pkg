@@ -1,0 +1,15 @@
+---
+version: "3.7"
+services:
+  ubuntu-1804:
+    image: py-build:ubuntu-1804
+    build:
+      context: ./targets/ubuntu-1804
+    volumes: 
+      - ./output:/output
+      - ./src:/src
+    entrypoint: /build.sh
+    environment:
+      VERSION:
+      BUILD_NUMBER:
+

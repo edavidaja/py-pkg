@@ -4,30 +4,38 @@ set -xeu
 
 echo "Run script starting..."
 
-BUILD_NO=${2:-default}
+INPUT=${1:-"empty"}
+IFS=,
 
 function docker_build(){
-docker build -t py-build:ubuntu-1804 ./targets/ubuntu-1804/
+# docker build -t py-build:ubuntu-1804 ./targets/ubuntu-1804/
+docker-compose build
 }
 
 function docker_run() {
-docker run -v ${PWD}/output:/opt/python -v ${PWD}/src:/src py-build:ubuntu-1804 ${1}
+# docker run -v ${PWD}/output:/opt/python -v ${PWD}/src:/src py-build:ubuntu-1804 ${1}
+for VERSION in ${PY_VERSIONS}
+do
+export VERSION=${VERSION}
+docker-compose up
+done
 }
 
-if [[ ${1} == "run" ]]; then
+
+if [[ ${INPUT} == "run" ]]; then
 docker_run ${BUILD_NO}
 exit
 fi
 
 
-if [[ ${1} == "build" ]]; then
+if [[ ${INPUT} == "build" ]]; then
 docker_build
 exit
 fi
 
-if [[ ${1} == "all" ]]; then
+if [[ ${INPUT} == "all" ]]; then
 docker_build
-docker_run ${BUILD_NO}
+docker_run
 exit
 fi
 

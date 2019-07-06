@@ -2,13 +2,39 @@
 
 set -xeu
 
+INT_PY_VERSIONS=${PY_VERSIONS:-"empty"}
+
+if [ "$INT_PY_VERSIONS" == "empty" ]; then
+  echo "Error: PY_VERSIONS not set - exiting"
+  exit 1
+fi
+
+function valid_version(){
+  RE="^[0-9]*\.[0-9]*\.[0-9]*$"
+  if [[ "$1" =~ $RE ]]; then
+    echo "Valid version found ("$1") continuing..."A
+    if [ ! -f "./src/Python-${1}.tgz" ]; then
+      wget -q -O ./src/Python-${1}.tgz https://www.python.org/ftp/python/${1}/Python-${1}.tgz
+    fi
+  else 
+    echo NOT_VALID
+  fi
+}
+
+
 echo "Preparing build environment"
 
 if [[ ! -d src ]]; then
-  echo "Creating src directory and obtaining source code"
   mkdir src
-  wget -q -O ./src/Python-3.6.8.tgz https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz
 fi
+
+IFS=,
+for VERSION in ${INT_PY_VERSIONS}
+do
+	echo "$VERSION"
+	valid_version "$VERSION"
+done
+
 
 if [[ ! -d output ]]; then
   echo "Creating output directory"

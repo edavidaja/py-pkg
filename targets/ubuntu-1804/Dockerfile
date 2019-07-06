@@ -1,6 +1,7 @@
 FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV OS_IDENTIFIER=ubuntu-1804
 
 RUN apt-get update && apt-get upgrade -y
 
@@ -22,6 +23,7 @@ RUN apt-get install -y \
   libreadline-dev \
   ruby \ 
   ruby-dev \
+  libffi-dev \
   ;
 
 RUN gem install fpm
