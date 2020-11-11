@@ -23,7 +23,7 @@ fpm \
   -s dir \
   -t rpm \
   -v ${BUILD_NUMBER} \
-  -n python${VERSION} \
+  -n python${VERSION}-${OS_IDENTIFIER} \
   -p /output/${OS_IDENTIFIER}/ \
   /opt/python/${VERSION}
 
