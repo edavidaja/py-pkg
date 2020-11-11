@@ -1,7 +1,7 @@
 ---
 version: "3.3"
 services:
-  ubuntu-1104:
+  ubuntu-2004:
     image: py-build:ubuntu-2004
     build:
       context: ./targets/ubuntu-2004

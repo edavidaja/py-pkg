@@ -23,7 +23,8 @@ fpm \
   -s dir \
   -t deb \
   -v ${BUILD_NUMBER} \
-  -n python${VERSION}-${OS_IDENTIFIER} \
+  -n python${VERSION} \
+  --iteration ${OS_IDENTIFIER} \
   -p /output/${OS_IDENTIFIER}/ \
   /opt/python/${VERSION}
 
