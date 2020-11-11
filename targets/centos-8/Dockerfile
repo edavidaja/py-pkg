@@ -2,7 +2,7 @@ FROM centos:centos8
 
 ENV OS_IDENTIFIER=centos-8
 
-RUN yum config-manager --set-enabled PowerTools && yum -y update
+RUN sed -i 's/^enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-PowerTools.repo && yum -y update
 
 RUN yum -y install \
   wget \
