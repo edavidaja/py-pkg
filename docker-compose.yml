@@ -1,6 +1,17 @@
 ---
 version: "3.3"
 services:
+  ubuntu-1104:
+    image: py-build:ubuntu-2004
+    build:
+      context: ./targets/ubuntu-2004
+    volumes: 
+      - ./output:/output
+      - ./src:/src
+    entrypoint: /build.sh
+    environment:
+      VERSION:
+      BUILD_NUMBER:
   ubuntu-1804:
     image: py-build:ubuntu-1804
     build:
@@ -12,10 +23,10 @@ services:
     environment:
       VERSION:
       BUILD_NUMBER:
-  centos-7:
-    image: py-build:centos-7
+  centos-8:
+    image: py-build:centos-8
     build:
-      context: ./targets/centos-7
+      context: ./targets/centos-8
     volumes: 
       - ./output:/output
       - ./src:/src
