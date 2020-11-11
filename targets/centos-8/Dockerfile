@@ -1,6 +1,6 @@
-FROM centos:centos7
+FROM centos:centos8
 
-ENV OS_IDENTIFIER=centos-7
+ENV OS_IDENTIFIER=centos-8
 
 RUN yum -y update
 
