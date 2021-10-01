@@ -24,7 +24,6 @@ fpm \
   -t rpm \
   -v ${BUILD_NUMBER} \
   -n python${VERSION} \
-  --iteration ${OS_IDENTIFIER} \
   -p /output/${OS_IDENTIFIER}/ \
   /opt/python/${VERSION}
 
