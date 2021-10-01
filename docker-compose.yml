@@ -34,4 +34,15 @@ services:
     environment:
       VERSION:
       BUILD_NUMBER:
+  centos-7:
+    image: py-build:centos-7
+    build:
+      context: ./targets/centos-7
+    volumes: 
+      - ./output:/output
+      - ./src:/src
+    entrypoint: /build.sh
+    environment:
+      VERSION:
+      BUILD_NUMBER:
 
