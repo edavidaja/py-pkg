@@ -12,9 +12,9 @@ fi
 function valid_version(){
   RE="^[0-9]*\.[0-9]*\.[0-9]*$"
   if [[ "$1" =~ $RE ]]; then
-    echo "Valid version found ("$1") continuing..."A
+    echo "Valid version found ("$1") continuing..."
     if [ ! -f "./src/Python-${1}.tgz" ]; then
-      wget -q -O ./src/Python-${1}.tgz https://www.python.org/ftp/python/${1}/Python-${1}.tgz
+      curl -s -o ./src/Python-${1}.tgz https://www.python.org/ftp/python/${1}/Python-${1}.tgz
     fi
   else 
     echo NOT_VALID
