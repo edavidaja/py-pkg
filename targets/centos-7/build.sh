@@ -10,6 +10,7 @@ tar -zxvf Python-${VERSION}.tgz
 cd Python-${VERSION}
 
 ./configure \
+  --enable-ipv6 \
   --enable-shared \
   --prefix /opt/python/${VERSION} 
 
