@@ -11,19 +11,19 @@ RUN apt-get install -y \
 
 RUN apt-get install -y \
   gcc \
-  make \
-  zlib1g-dev \
   libbz2-dev \
-  libncurses-dev \
+  libffi-dev \
   libgdbm-dev \
   liblzma-dev \
+  libncurses-dev \
+  libreadline-dev \
   libsqlite3-dev \
   libssl-dev \
+  make \
   tk-dev \
-  libreadline-dev \
+  zlib1g-dev \
   ruby \ 
   ruby-dev \
-  libffi-dev \
   ;
 
 RUN gem install fpm
