@@ -18,6 +18,7 @@ RUN yum -y install \
   libxml2-devel \
   openssl-devel \
   readline-devel \
+  sqlite-devel \
   ruby \ 
   ruby-devel \
   && yum clean all
