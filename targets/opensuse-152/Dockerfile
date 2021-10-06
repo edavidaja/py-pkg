@@ -26,6 +26,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys install \
     openssl-devel \
     pkgconfig \
     readline-devel \
+    rpm-build \
     sqlite-devel \
     tar \
     xz \
