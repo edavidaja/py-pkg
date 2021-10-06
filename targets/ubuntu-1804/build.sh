@@ -9,7 +9,11 @@ tar -zxvf Python-${VERSION}.tgz
 
 cd Python-${VERSION}
 
-./configure --prefix /opt/python/${VERSION} --enable-optimizations
+./configure \
+  --enable-ipv6 \
+  --enable-optimizations \
+  --enable-shared \
+  --prefix /opt/python/${VERSION} 
 
 if [ ! -d /output/${OS_IDENTIFIER} ]; then
   mkdir /output/${OS_IDENTIFIER}

@@ -5,19 +5,33 @@ ENV OS_IDENTIFIER=centos-7
 # RUN sed -i 's/^enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-Linux-PowerTools.repo && yum -y update
 
 RUN yum -y install \
-  wget \
-  gcc \
-  make \
-  rpm-build \
-  zlib-devel \
+  autoconf \
+  bluez-libs-devel \
+  bzip2 \
   bzip2-devel \
-  ncurses-devel \
-  tk-devel \
-  tix-devel \
+  expat-devel \
+  gcc-c++ \
+  gdbm-devel \
+  git \
+  glibc-devel \
+  gmp-devel \
+  libX11-devel \
+  libdb-devel \
   libffi-devel \
-  libxml2-devel \
+  mesa-libGL-devel \
+  ncurses-devel \
   openssl-devel \
   readline-devel \
+  sqlite-devel \
+  systemtap-sdt-devel \
+  tcl-devel \
+  tix-devel \
+  tk-devel \
+  valgrind-devel \
+  zlib-devel \
+  rpm-build \
+  readline-devel \
+  make \
   ruby \ 
   ruby-devel \
   && yum clean all
