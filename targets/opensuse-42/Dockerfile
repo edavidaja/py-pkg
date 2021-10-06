@@ -36,6 +36,7 @@ RUN zypper --non-interactive --gpg-auto-import-keys install \
     && zypper clean
 
 # Pin fpm for compatibility with Ruby < 2.3
+# https://github.com/rstudio/r-builds/blob/d07acfe0cdb68fa99331ec1b12e92b169c05d447/builder/Dockerfile.opensuse-42#L72
 RUN gem install ffi:1.12.2 fpm:1.11.0 && \
     ln -s /usr/bin/fpm.ruby2.1 /usr/local/bin/fpm
 
