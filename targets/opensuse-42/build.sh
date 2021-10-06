@@ -16,8 +16,8 @@ cd Python-${VERSION}
     --prefix=/opt/python/${VERSION} \
     LDFLAGS=-Wl,-rpath=/opt/python/${VERSION}/lib,--disable-new-dtags
 
-if [ ! -d /output/${OS_IDENTIFIER} ]; then                                      
-  mkdir /output/${OS_IDENTIFIER}                                                
+if [ ! -d /output/${OS_IDENTIFIER} ]; then
+  mkdir /output/${OS_IDENTIFIER}
 fi
 
 make
