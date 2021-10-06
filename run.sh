@@ -8,16 +8,27 @@ INPUT=${1:-"empty"}
 IFS=,
 
 function docker_build(){
-# docker build -t py-build:ubuntu-1804 ./targets/ubuntu-1804/
 docker-compose build
 }
 
 function docker_run() {
-# docker run -v ${PWD}/output:/opt/python -v ${PWD}/src:/src py-build:ubuntu-1804 ${1}
 for VERSION in ${PY_VERSIONS}
 do
 export VERSION=${VERSION}
 docker-compose up
+done
+}
+
+function docker_run_single() {
+TARGET=${1-default}
+if [ "$TARGET" == "default" ]; then
+  echo "Error: You must specify a valid docker-compose target"
+  exit 1
+fi
+for VERSION in ${PY_VERSIONS}
+do
+export VERSION=${VERSION}
+docker-compose up "$TARGET"
 done
 }
 
@@ -30,6 +41,11 @@ fi
 
 if [[ ${INPUT} == "build" ]]; then
 docker_build
+exit
+fi
+
+if [[ ${INPUT} == "single" ]]; then
+docker_run_single "${2-default}"
 exit
 fi
 

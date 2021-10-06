@@ -13,7 +13,8 @@ cd Python-${VERSION}
   --enable-ipv6 \
   --enable-optimizations \
   --enable-shared \
-  --prefix /opt/python/${VERSION}
+  --prefix /opt/python/${VERSION} \
+    LDFLAGS=-Wl,-rpath=/opt/python/${VERSION}/lib,--disable-new-dtags
 
 if [ ! -d /output/${OS_IDENTIFIER} ]; then
   mkdir /output/${OS_IDENTIFIER}

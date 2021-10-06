@@ -20,7 +20,7 @@ make install
 
 fpm \
   -s dir \
-  -t deb \
+  -t rpm \
   -v ${BUILD_NUMBER} \
   -n python${VERSION} \
   -p /output/${OS_IDENTIFIER}/ \

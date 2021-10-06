@@ -45,4 +45,15 @@ services:
     environment:
       VERSION:
       BUILD_NUMBER:
+  opensuse-152:
+    image: py-build:opensuse-152
+    build:
+      context: ./targets/opensuse-152
+    volumes: 
+      - ./output:/output
+      - ./src:/src
+    entrypoint: /build.sh
+    environment:
+      VERSION:
+      BUILD_NUMBER:
 
