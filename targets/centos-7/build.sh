@@ -12,7 +12,8 @@ cd Python-${VERSION}
 ./configure \
   --enable-ipv6 \
   --enable-shared \
-  --prefix /opt/python/${VERSION} 
+  --prefix /opt/python/${VERSION} \
+    LDFLAGS=-Wl,-rpath=/opt/python/${VERSION}/lib,--disable-new-dtags
 
 if [ ! -d /output/${OS_IDENTIFIER} ]; then
   mkdir /output/${OS_IDENTIFIER}
