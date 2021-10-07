@@ -27,10 +27,11 @@ git clone https://github.com/sellorm/py-pkg.git
 
 cat <<EOF > ./py-pkg/.env
 export PY_VERSIONS=3.9.7,3.8.12,3.7.11,3.6.14
-export BUILD_NUMBER=1235
+uxport BUILD_NUMBER=1235
 EOF
 
 # AWS config
+mkdir ~/.aws
 cat <<EOF > ~/.aws/config
 [default]
 region = eu-west-1
