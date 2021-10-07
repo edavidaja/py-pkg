@@ -56,4 +56,15 @@ services:
     environment:
       VERSION:
       BUILD_NUMBER:
+  opensuse-42:
+    image: py-build:opensuse-42
+    build:
+      context: ./targets/opensuse-42
+    volumes: 
+      - ./output:/output
+      - ./src:/src
+    entrypoint: /build.sh
+    environment:
+      VERSION:
+      BUILD_NUMBER:
 
