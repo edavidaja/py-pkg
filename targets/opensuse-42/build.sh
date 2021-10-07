@@ -10,14 +10,15 @@ tar -zxvf Python-${VERSION}.tgz
 cd Python-${VERSION}
 
 ./configure \
-    --prefix=/opt/python/${VERSION} \
-    --enable-shared \
     --enable-ipv6 \
+    --enable-optimizations \
+    --enable-shared \
+    --prefix=/opt/python/${VERSION} \
     LDFLAGS=-Wl,-rpath=/opt/python/${VERSION}/lib,--disable-new-dtags
 
-if [ ! -d /output/${OS_IDENTIFIER} ]; then                                      
-  mkdir /output/${OS_IDENTIFIER}                                                
-fi  
+if [ ! -d /output/${OS_IDENTIFIER} ]; then
+  mkdir /output/${OS_IDENTIFIER}
+fi
 
 make
 make install
