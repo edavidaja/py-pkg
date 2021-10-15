@@ -15,9 +15,9 @@ cd Python-${VERSION}
     --enable-ipv6 \
     LDFLAGS=-Wl,-rpath=/opt/python/${VERSION}/lib,--disable-new-dtags
 
-if [ ! -d /output/${OS_IDENTIFIER} ]; then                                      
-  mkdir /output/${OS_IDENTIFIER}                                                
-fi  
+if [ ! -d /output/${OS_IDENTIFIER} ]; then
+  mkdir /output/${OS_IDENTIFIER}
+fi
 
 make
 make install
