@@ -25,9 +25,11 @@ sudo apt install -y \
 # Project config
 git clone https://github.com/sellorm/py-pkg.git
 
-cat <<EOF > ./py-pkg/.env
+cat <<EOF > ./py-pkg/.env_build
 export PY_VERSIONS=3.9.7,3.8.12,3.7.11,3.6.14
-uxport BUILD_NUMBER=1235
+export BUILD_NUMBER=1235
+export S3_PATH=""
+export OUTPUT_PATH="output/"
 EOF
 
 # AWS config
